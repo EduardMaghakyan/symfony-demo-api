@@ -21,6 +21,7 @@ class Message
      * @Assert\Email(
      *     message = "The email {{ value }} is not a valid email.",
      * )
+     * @Assert\NotBlank
      * @ORM\Column(type="string", length=255)
      */
     private $email;
@@ -30,6 +31,7 @@ class Message
      *     max="1000",
      *     maxMessage = "Message can't be longer than {{ limit }} characters"
      * )
+     * @Assert\NotBlank
      * @ORM\Column(type="text")
      */
     private $message;
