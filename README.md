@@ -8,6 +8,4 @@
 You can use Homestead or this [box](https://app.vagrantup.com/EduardMaghakyan/boxes/symfony-demo-api)
 
 ## Supported endpoints
-Create new message
-
-POST: <YOUR_HOST_URL>/api/v1//messages/new
+Details can be found in [Swagger](https://app.swaggerhub.com/apis/EduardMaghakyan9/symfony-demo-api/1.0.0)
