@@ -41,9 +41,11 @@ class MessageControllerTest extends TestCase
         
         $this->assertEquals(201, $response->getStatusCode(), 'Expected response code should be 201');
         $data = json_decode($response->getBody(true), true);
-        $this->assertArrayHasKey('id', $data);
+        $this->assertArrayHasKey('uuid', $data);
         $this->assertArrayHasKey('email', $data);
         $this->assertArrayHasKey('message', $data);
+        $this->assertEquals($data['email'], $email);
+        $this->assertEquals($data['message'], $message);
     }
     
     /**

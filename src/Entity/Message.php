@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Ramsey\Uuid\Uuid;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -36,6 +37,17 @@ class Message
      */
     private $message;
     
+    /**
+     * @ORM\Column(type="uuid", unique=true)
+     */
+    private $uuid;
+    
+    
+    public function __construct()
+    {
+        $this->setUuid(Uuid::uuid4()->toString());
+    }
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -68,9 +80,21 @@ class Message
     public function toArray(): array
     {
         return [
-            'id'      => $this->getId(),
+            'uuid'    => $this->getUuid(),
             'email'   => $this->getEmail(),
             'message' => $this->getMessage(),
         ];
+    }
+    
+    public function getUuid()
+    {
+        return $this->uuid;
+    }
+    
+    public function setUuid($uuid): self
+    {
+        $this->uuid = $uuid;
+        
+        return $this;
     }
 }
